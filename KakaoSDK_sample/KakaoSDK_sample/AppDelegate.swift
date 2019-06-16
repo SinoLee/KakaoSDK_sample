@@ -12,11 +12,19 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var deviceToken: Data?
+    var isOpened: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupPushNotification()
+        
+        // 로그인,로그아웃 상태 변경 받기
+        NotificationCenter.default.addObserver(self, selector: #selector(kakaoSessionDidChangeWithNotification), name: .KOSessionDidChange, object: nil)
         return true
+    }
+    @objc func kakaoSessionDidChangeWithNotification() {
+        isOpened = KOSession.shared().isOpen()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -84,5 +92,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    //
+    private func setupPushNotification() {
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if let error = error as NSError? {
+                print("APNS Authorization failure. \(error)")
+            } else {
+                print("APNS Authorization success.")
+            }
+        }
+        UIApplication.shared.registerForRemoteNotifications()
+    }
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        self.deviceToken = deviceToken
+        var hexString: String = ""
+        for byte in deviceToken {
+            hexString.append(String(Int(byte), radix: 16))
+        }
+        print("didRegisterForRemoteNotificationsWithDeviceToken=\(hexString)")
+    }
 }
 
+// MARK: - extension: UNUserNotificationCenterDelegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("The notification \"\(notification.request.identifier)\" is presenting. \"\(notification.request.content.body)\"")
+        completionHandler([.alert, .badge, .sound])
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("The user responded to the notification \"\(response.notification.request.identifier)\" at \"\(response.notification.date.description(with: .current))\".")
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        completionHandler()
+    }
+    
+}

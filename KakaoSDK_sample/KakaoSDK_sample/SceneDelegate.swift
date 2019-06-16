@@ -50,7 +50,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
+    
+//    var window: UIWindow?
+//    var loginViewController: UIViewController?
+//    var mainViewController: UIViewController?
+//
+//
+//
+//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+//        guard let _ = (scene as? UIWindowScene) else { return }
+//    }
+//
+//    func sceneDidDisconnect(_ scene: UIScene) {
+//    }
+//
+//    func sceneDidBecomeActive(_ scene: UIScene) {
+//        print("# Scene did become active")
+//        KOSession.handleDidBecomeActive()
+//    }
+//
+//    func sceneWillResignActive(_ scene: UIScene) {
+//        print("# Scene will resign active")
+//    }
+//
+//    func sceneWillEnterForeground(_ scene: UIScene) {
+//        print("# Scene will enter foregraound")
+//    }
+//
+//    func sceneDidEnterBackground(_ scene: UIScene) {
+//        // Called as the scene transitions from the foreground to the background.
+//        // Use this method to save data, release shared resources, and store enough scene-specific state information
+//        // to restore the scene back to its current state.
+//
+//        // Save changes in the application's managed object context when the application transitions to the background.
+//        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+//
+//        KOSession.handleDidEnterBackground()
+//    }
 
 }
 
