@@ -13,18 +13,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var deviceToken: Data?
-    var isOpened: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupPushNotification()
         
-        // 로그인,로그아웃 상태 변경 받기
-        NotificationCenter.default.addObserver(self, selector: #selector(kakaoSessionDidChangeWithNotification), name: .KOSessionDidChange, object: nil)
         return true
-    }
-    @objc func kakaoSessionDidChangeWithNotification() {
-        isOpened = KOSession.shared().isOpen()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -111,6 +105,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             hexString.append(String(Int(byte), radix: 16))
         }
         print("didRegisterForRemoteNotificationsWithDeviceToken=\(hexString)")
+    }
+    //
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("didFailToRegisterForRemoteNotificationsWithError=\(error)")
+    }
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        print("application:open:sourceApplication:annotation:")
+        if KOSession.handleOpen(url) {
+            return true
+        }
+        return false
+    }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        print("open:options:")
+        if KOSession.handleOpen(url) {
+            return true
+        }
+        return false
     }
 }
 

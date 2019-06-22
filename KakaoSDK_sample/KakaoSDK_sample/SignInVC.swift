@@ -11,7 +11,7 @@ import UIKit
 class SignInVC: UIViewController {
 
     @IBAction func login(_ sender: AnyObject) {
-        let session: KOSession = KOSession.shared();
+        let session: KOSession = KOSession.shared()
         
         if session.isOpen() {
             session.close()
@@ -19,14 +19,16 @@ class SignInVC: UIViewController {
         
         session.open(completionHandler: { (error) -> Void in
             
-            if !session.isOpen() {
-                if let error = error as NSError? {
-                    switch error.code {
-                    case Int(KOErrorCancelled.rawValue):
-                        break
-                    default:
-                        UIAlertController.showMessage(error.description)
-                    }
+            if session.isOpen() {
+                self.performSegue(withIdentifier: "unwindToIntro", sender: self)
+            }
+            else {
+                guard let error = error as NSError? else { return }
+                switch error.code {
+                case Int(KOErrorCancelled.rawValue):
+                    break
+                default:
+                    UIAlertController.showMessage(error.description)
                 }
             }
         })

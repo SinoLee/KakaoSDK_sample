@@ -16,10 +16,14 @@ class IntroVC: UIViewController {
     @IBAction func unwindToIntro(segue: UIStoryboardSegue) {
         print("UnwindToLogIn State")
         if let segue = segue as? UIStoryboardSegueWithCompletion {
+            print("UnwindToLogIn : SegueWithCOmpletion")
             segue.completion = {
-                self.showWaitLogin()
+                self.showLogin()
             }
         }
+    }
+    @IBAction func touchUpIntroView(_ sender: UIView) {
+        showLogin()
     }
     
 
@@ -50,23 +54,15 @@ class IntroVC: UIViewController {
         super.viewDidLoad()
         
         hideStatusBar = !hideStatusBar
-        waitTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(showWaitLogin), userInfo: nil, repeats: false)
+        waitTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(showLogin), userInfo: nil, repeats: false)
     }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     // MARK: -
-    @objc fileprivate func kakaoSessionDidChangeWithNotification() {
-        print("Notification did received.")
-        waitTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(showWaitLogin), userInfo: nil, repeats: false)
-    }
-    @objc func showWaitLogin() {
-        //print("is Opened : \(AppDelegate)")
+    @objc func showLogin() {
+        print("is Opened : \(isOpened)")
         let identifier = isOpened ? "ShowMainFromIntro" : "ShowSignInFromIntro"
         performSegue(withIdentifier: identifier, sender: self)
     }
-}
-
-extension IntroVC: UNUserNotificationCenterDelegate {
-    
 }
