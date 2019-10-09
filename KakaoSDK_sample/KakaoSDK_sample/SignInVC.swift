@@ -11,7 +11,7 @@ import UIKit
 class SignInVC: UIViewController {
 
     @IBAction func login(_ sender: AnyObject) {
-        let session: KOSession = KOSession.shared()
+        guard let session: KOSession = KOSession.shared() else { return }
         
         if session.isOpen() {
             session.close()

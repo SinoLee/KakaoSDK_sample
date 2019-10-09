@@ -37,7 +37,7 @@ class IntroVC: UIViewController {
         }
     }
     private var isOpened: Bool {
-        return KOSession.shared().isOpen()
+        return KOSession.shared()?.isOpen() ?? false
     }
     
     override var prefersStatusBarHidden: Bool {

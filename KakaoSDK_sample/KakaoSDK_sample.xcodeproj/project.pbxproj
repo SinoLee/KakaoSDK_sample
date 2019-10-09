@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84000D55234D78070043F1AB /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84000D54234D78070043F1AB /* KakaoOpenSDK.framework */; };
 		845E3EA822B492260042C201 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3EA722B492260042C201 /* IntroVC.swift */; };
 		845E3EAE22B52DFD0042C201 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3EAD22B52DFD0042C201 /* SignInVC.swift */; };
 		845E3EB022B52FED0042C201 /* UIStoryboardSegueWithCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E3EAF22B52FED0042C201 /* UIStoryboardSegueWithCompletion.swift */; };
@@ -19,8 +20,6 @@
 		84CEC3B322B14758008A0196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CEC3B122B14758008A0196 /* LaunchScreen.storyboard */; };
 		84CEC3BE22B14758008A0196 /* KakaoSDK_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC3BD22B14758008A0196 /* KakaoSDK_sampleTests.swift */; };
 		84CEC3C922B14758008A0196 /* KakaoSDK_sampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC3C822B14758008A0196 /* KakaoSDK_sampleUITests.swift */; };
-		84CEC3D822B14D60008A0196 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CEC3D722B14D60008A0196 /* KakaoOpenSDK.framework */; };
-		84CEC3D922B14D60008A0196 /* KakaoOpenSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84CEC3D722B14D60008A0196 /* KakaoOpenSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84CEC3DF22B15EFD008A0196 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC3DE22B15EFD008A0196 /* MainVC.swift */; };
 		84EC605A22B67E51005260FD /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC605922B67E51005260FD /* AlertControllerExtension.swift */; };
 		84EC605C22B6885A005260FD /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC605B22B6885A005260FD /* ConfigConstants.swift */; };
@@ -50,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84CEC3D922B14D60008A0196 /* KakaoOpenSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		84000D54234D78070043F1AB /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = "../../_Frameworks/kakao-ios-sdk/KakaoOpenSDK.framework"; sourceTree = "<group>"; };
 		8451555422B2954300BF5D46 /* KakaoSDK_sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KakaoSDK_sample-Bridging-Header.h"; sourceTree = "<group>"; };
 		845E3EA722B492260042C201 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		845E3EAD22B52DFD0042C201 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -77,7 +76,6 @@
 		84CEC3C422B14758008A0196 /* KakaoSDK_sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KakaoSDK_sampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CEC3C822B14758008A0196 /* KakaoSDK_sampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSDK_sampleUITests.swift; sourceTree = "<group>"; };
 		84CEC3CA22B14758008A0196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CEC3D722B14D60008A0196 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = KakaoSDK_sample/KakaoOpenSDK/KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		84CEC3DE22B15EFD008A0196 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		84EC605922B67E51005260FD /* AlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
 		84EC605B22B6885A005260FD /* ConfigConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
@@ -88,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CEC3D822B14D60008A0196 /* KakaoOpenSDK.framework in Frameworks */,
+				84000D55234D78070043F1AB /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +171,7 @@
 		84CEC3D622B14D5F008A0196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84CEC3D722B14D60008A0196 /* KakaoOpenSDK.framework */,
+				84000D54234D78070043F1AB /* KakaoOpenSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -495,7 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/KakaoSDK_sample/KakaoOpenSDK",
+					"$(PROJECT_DIR)/../../_Frameworks/kakao-ios-sdk",
 				);
 				INFOPLIST_FILE = KakaoSDK_sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/KakaoSDK_sample/KakaoOpenSDK",
+					"$(PROJECT_DIR)/../../_Frameworks/kakao-ios-sdk",
 				);
 				INFOPLIST_FILE = KakaoSDK_sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
