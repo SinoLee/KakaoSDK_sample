@@ -23,6 +23,7 @@
 		84CEC3DF22B15EFD008A0196 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEC3DE22B15EFD008A0196 /* MainVC.swift */; };
 		84EC605A22B67E51005260FD /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC605922B67E51005260FD /* AlertControllerExtension.swift */; };
 		84EC605C22B6885A005260FD /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC605B22B6885A005260FD /* ConfigConstants.swift */; };
+		84FED6752354C93500F51E4A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84FED6742354C93500F51E4A /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		84CEC3DE22B15EFD008A0196 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		84EC605922B67E51005260FD /* AlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
 		84EC605B22B6885A005260FD /* ConfigConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
+		84FED6742354C93500F51E4A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		84CEC39722B14754008A0196 = {
 			isa = PBXGroup;
 			children = (
+				84FED6742354C93500F51E4A /* README.md */,
 				84CEC3A222B14754008A0196 /* KakaoSDK_sample */,
 				84CEC3BC22B14758008A0196 /* KakaoSDK_sampleTests */,
 				84CEC3C722B14758008A0196 /* KakaoSDK_sampleUITests */,
@@ -283,6 +286,7 @@
 			files = (
 				84CEC3B322B14758008A0196 /* LaunchScreen.storyboard in Resources */,
 				84CEC3B022B14758008A0196 /* Assets.xcassets in Resources */,
+				84FED6752354C93500F51E4A /* README.md in Resources */,
 				84CEC3AB22B14754008A0196 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
